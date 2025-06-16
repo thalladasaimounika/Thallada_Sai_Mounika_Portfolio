@@ -1,0 +1,84 @@
+@media (min-width: 992px) {
+    #sideNav {
+        padding-left: 0;
+        padding-right: 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+        height: 100vh;
+        background-color: #dc712b;
+        position: sticky;
+        top: 0;
+        align-self: flex-start;
+        height: 100vh;
+    }
+    #sideNav .navbar-brand .img-profile {
+        max-width: 10rem;
+        max-height: 10rem;
+        border: 0.5rem solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+    }
+    .navbar-expand-lg .navbar-toggler {
+        display: none;
+    }
+    .navbar-expand-lg .navbar-nav {
+        flex-direction: column;
+    }
+    .navbar-brand {
+        cursor: pointer;
+    }
+    
+}
+.resume-section {
+    width:80%;
+}
+#about,
+#experience {
+    padding: 3rem;
+    border-bottom: 1px solid #6c757d;
+}
+#portfolio {
+    display: flex;
+}
+section#about h1 span,
+.project-duration {
+    color: #dc712b;
+}
+h1, h3 {
+    font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    color: #343a40;
+}
+.sub-heading {
+    font-weight: 500;
+    color: #6c757d;
+}
+.sub-heading a {
+    color: #dc712b;
+    text-decoration: none;
+}
+.about-content,
+.project-content {
+    font-weight: 400;
+}
+.linkedIn-icon svg,
+.github-icon svg {
+    fill: #6c757d;
+}
+.linkedIn-icon:hover svg{
+    fill: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+}
+.github-icon:hover svg{
+    fill: #343a40;
+}
+.github-icon {
+    margin-left: 1rem;
+}
+.navbar-collapse {
+    align-items: normal;
+    padding-top: 1rem;
+    font-weight: 400;
+}
+.nav-link {
+    font-weight: bold;
+}
