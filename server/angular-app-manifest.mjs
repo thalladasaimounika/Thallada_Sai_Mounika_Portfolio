@@ -2,7 +2,7 @@
 export default {
   bootstrap: () => import('./main.server.mjs').then(m => m.default),
   inlineCriticalCss: true,
-  baseHref: 'https://thalladasaimounika.github.io/Thallada_Sai_Mounika_Portfolio/',
+  baseHref: '/Thallada_Sai_Mounika_Portfolio/',
   locale: undefined,
   routes: [
   {
@@ -12,9 +12,9 @@ export default {
 ],
   entryPointToBrowserMapping: undefined,
   assets: {
-    'index.csr.html': {size: 560, hash: '0f23df770411f45ccc908dda43d6207b5c3b091a82c02a2fe3769777de4c6605', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
-    'index.server.html': {size: 1073, hash: 'ebb323701a168a67192da810d5851a0930b67d13d4334d7f6eb3eb7a88ece24a', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
-    'index.html': {size: 20901, hash: '4213d7d865b0eec6aa4d05343f0b389f7d79692a57034e6db7f579e9147084cf', text: () => import('./assets-chunks/index_html.mjs').then(m => m.default)},
-    'styles-5INURTSO.css': {size: 0, hash: 'menYUTfbRu8', text: () => import('./assets-chunks/styles-5INURTSO_css.mjs').then(m => m.default)}
+    'index.csr.html': {size: 5117, hash: 'c066cca3f4f793cb5539fe4426dac3bf96ce46d930c0f7105580b9d598c5246f', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
+    'index.server.html': {size: 1089, hash: '03601e8fad2a5d118eb426c4e98cfaf07d5f203c3a2893d44d615769bd9799df', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
+    'index.html': {size: 11089, hash: '2ea889b584818d26fda4b3dafc7ed711040caa223b1b483b7e3c37ac117e5a01', text: () => import('./assets-chunks/index_html.mjs').then(m => m.default)},
+    'styles-EMBJAXFM.css': {size: 315637, hash: 'jx7i+ifeyGg', text: () => import('./assets-chunks/styles-EMBJAXFM_css.mjs').then(m => m.default)}
   },
 };
