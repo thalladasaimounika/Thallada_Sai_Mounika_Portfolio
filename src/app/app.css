@@ -13,72 +13,177 @@
         align-self: flex-start;
         height: 100vh;
     }
+
     #sideNav .navbar-brand .img-profile {
         max-width: 10rem;
         max-height: 10rem;
         border: 0.5rem solid rgba(255, 255, 255, 0.2);
         border-radius: 50%;
     }
+
     .navbar-expand-lg .navbar-toggler {
         display: none;
     }
+
     .navbar-expand-lg .navbar-nav {
         flex-direction: column;
     }
+
     .navbar-brand {
         cursor: pointer;
     }
-    
+
+    .resume-section {
+        width: 80%;
+    }
+
+    #about,
+    #experience,
+    #education,
+    #skills,
+    #interests,
+    #awards {
+        padding: 3rem;
+    }
+
+    .navbar-collapse {
+        align-items: normal;
+    }
 }
+
+.navbar-brand {
+    padding-top: var(--bs-navbar-brand-padding-y);
+    padding-bottom: var(--bs-navbar-brand-padding-y);
+    margin-right: var(--bs-navbar-brand-margin-end);
+    font-size: var(--bs-navbar-brand-font-size);
+    color: var(--bs-navbar-brand-color);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
 .resume-section {
-    width:80%;
+    width: 100%;
+    padding-top: 3rem;
 }
+
 #about,
-#experience {
-    padding: 3rem;
+#experience,
+#education,
+#skills,
+#interests,
+#awards {
+    padding: 1rem;
     border-bottom: 1px solid #6c757d;
 }
+
 #portfolio {
     display: flex;
 }
+
 section#about h1 span,
-.project-duration {
+.project-duration,
+.education-duration {
     color: #dc712b;
 }
-h1, h3 {
+
+h1,
+h3 {
     font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     color: #343a40;
 }
+
+h4 {
+    font-size: 1.25rem;
+}
+
 .sub-heading {
     font-weight: 500;
     color: #6c757d;
 }
+
 .sub-heading a {
     color: #dc712b;
     text-decoration: none;
 }
+
 .about-content,
-.project-content {
+.project-content,
+.education-content,
+.skill-content,
+.interests-content {
     font-weight: 400;
 }
+
 .linkedIn-icon svg,
 .github-icon svg {
     fill: #6c757d;
 }
-.linkedIn-icon:hover svg{
-    fill: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+
+.linkedIn-icon:hover svg {
+    fill: rgb(10, 102, 194);
 }
-.github-icon:hover svg{
-    fill: #343a40;
+
+.github-icon:hover svg {
+    fill: #1f2328;
 }
+
 .github-icon {
     margin-left: 1rem;
 }
+
 .navbar-collapse {
-    align-items: normal;
+    align-items: center;
     padding-top: 1rem;
     font-weight: 400;
 }
+
 .nav-link {
     font-weight: bold;
+}
+
+.nav-link:focus,
+.nav-link:hover,
+.nav-link.active {
+    color: white;
+}
+
+.floating-btn {
+    bottom: 2rem;
+    right: 2rem;
+    position: fixed;
+    background-color: #dc712b;
+    font-weight: 600;
+    border: none;
+    border-radius: 1.8rem;
+    padding: 0.5rem;
+    color: white;
+}
+
+.skills-content {
+    font-size: 3rem;
+}
+
+.bi-trophy {
+    font-size: 1.25rem;
+    color: rgb(255, 193, 7);
+}
+
+/* .skills-content .fa-angular {
+    color: #c3002f;
+} */
+@media (max-width: 991.98px) {
+    #sideNav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 9;
+        background-color: #dc712b;
+    }
+    .navbar-brand {
+        padding-left: 1rem;
+    }
+    .navbar-collapse {
+        padding-left: 1rem;
+    }
 }
