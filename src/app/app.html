@@ -6,8 +6,9 @@
         <img src="resume_photo.jpeg" width="200" class="img-profile">
       </span>
     </a>
-    <button class="navbar-toggler" type="button" (click)="openNavigationMenu()"><span class="navbar-toggler-icon"></span></button>
-    <div class="navbar-collapse collapse" id="navbarResponsive">
+    <button class="navbar-toggler" [ngClass]="{'collapsed': isNavMenuHidden}" type="button"
+      (click)="openNavigationMenu()" id="navButton"><span class="navbar-toggler-icon"></span></button>
+    <div class="navbar-collapse collapse" [ngClass]="{'show': !isNavMenuHidden}" id="navbarResponsive">
       <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link" href="#" (click)="scrollToSection($event, 'about')"
             [ngClass]="{'active': selectedNav==='about'}">ABOUT</a>
@@ -52,7 +53,7 @@
     </section>
     <section id="experience" class="w-100" #experienceSection>
       <h1 class="mb-5">Experience</h1>
-      <div class="experience-content d-flex flex-column flex-md-row justify-content-between mb-5">
+      <!-- <div class="experience-content d-flex flex-column flex-md-row justify-content-between mb-5">
         <div class="flex-grow-1">
           <h3 class="mb-0">Software Engineer</h3>
           <div class="sub-heading mb-5">
@@ -108,6 +109,27 @@
         <div class="flex-shrink-0">
           <span class="project-duration">December 2018 - March 2020</span>
         </div>
+      </div> -->
+      <div class="experience-content d-flex flex-column flex-lg-row w-100">
+        <mat-card class="example-card me-3 mb-3 mb-lg-0" appearance="outlined" *ngFor="let project of projectsList">
+          <mat-card-header>
+            <mat-card-title-group>
+              <mat-card-title>{{project.jobTitle}}</mat-card-title>
+              <mat-card-subtitle class="sub-heading">{{project.company}}</mat-card-subtitle>
+              <img mat-card-sm-image [src]="project.domainImage">
+            </mat-card-title-group>
+          </mat-card-header>
+          <mat-card-content>
+            {{project.projectInformation}} 
+            <button class="p-0 view-more" (click)="openRolesAndResponsibilitiesModal(project.id)">
+              <i class="fa-solid fa-chevron-right" [ngClass]="{'fa-beat': selectedNav==='experience'}" title="View More"></i>
+              <i class="fa-solid fa-chevron-right" [ngClass]="{'fa-beat': selectedNav==='experience'}" title="View More"></i>
+            </button>
+          </mat-card-content>
+          <mat-card-footer>
+            <span class="project-duration">{{project.rolePeriod}}</span>
+          </mat-card-footer>
+        </mat-card>
       </div>
     </section>
     <section id="education" class="w-100" #educationSection>
@@ -121,7 +143,7 @@
           <span class="education-content d-flex">
             Computer Science and Engineering
           </span>
-          <span class="education-content mb-5 d-flex">
+          <span class="education-content mb-2 mb-lg-0 d-flex">
             Percentage: 63.5
           </span>
         </div>
@@ -138,7 +160,7 @@
           <span class="education-content d-flex">
             Mathematics, Physics and Chemistry (MPC)
           </span>
-          <span class="education-content mb-5 d-flex">
+          <span class="education-content mb-2 mb-lg-0 d-flex">
             Percentage: 95
           </span>
         </div>
@@ -151,6 +173,12 @@
       <h1 class="mb-5">Skills</h1>
       <h3 class="mb-3">
         Programming Languages & Tools
+        <!-- <span class="ms-4">
+          <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle value="imageView" title="Image View"><span class="bi bi-image"></span></mat-button-toggle>
+            <mat-button-toggle value="listView" title="List View"><span class="bi bi-list"></span></mat-button-toggle>
+          </mat-button-toggle-group>
+        </span> -->
       </h3>
       <div class="skills-content mb-5">
         <i class="fa-brands fa-angular me-3" title="Angular"></i>
