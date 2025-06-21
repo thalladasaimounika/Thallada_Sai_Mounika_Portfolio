@@ -1,8 +1,14 @@
-<h1 mat-dialog-title>Roles & Responsibilities</h1>
+<h1 mat-dialog-title>{{projectDetails.projectName}}</h1>
 <mat-dialog-content>
-    {{data.id}}
-    This dialog showcases the title, close, content and actions elements.
+    <div class="project-content w-100">
+        <div class="sub-heading mb-2">Project Description:</div>
+        <span class="mb-3 d-block project-details">{{projectDetails.projectDescription}}</span>
+        <div class="sub-heading mb-2">Roles & Responsibilities</div>
+        <ul *ngFor="let project of projectDetails.responsibilities">
+            <li class="project-details">{{project}}</li>
+        </ul>
+    </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button matButton mat-dialog-close>Close</button>
+  <button matButton mat-dialog-close title="Close">Close</button>
 </mat-dialog-actions>

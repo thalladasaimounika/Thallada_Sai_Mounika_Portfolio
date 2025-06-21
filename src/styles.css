@@ -6,3 +6,16 @@ html, body { height: 100%; }
 /*body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }*/
 
 
+.mat-mdc-dialog-container div.mat-mdc-dialog-surface{
+    background-color: #fff;
+}
+.mat-mdc-dialog-actions button{
+    color: #dc712b !important;
+}
+.mat-mdc-dialog-actions button:hover,
+.mat-mdc-dialog-actions button:active{
+    background-color: rgba(220, 113, 43, 0.5) !important;
+}
+.mat-mdc-dialog-actions button.cdk-focused.cdk-program-focused .mat-mdc-button-persistent-ripple::before{
+    opacity: 0 !important;
+}

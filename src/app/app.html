@@ -28,7 +28,8 @@
   </nav>
   <div class="container-fluid resume-section">
     <section id="about" class="w-100" #aboutSection>
-      <h1>THALLADA <span>SAI MOUNIKA</span></h1>
+      <!-- <h1>THALLADA <span>SAI MOUNIKA</span></h1> -->
+      <span class="fs-2">👋 Hi, I’m <span class="name">Thallada Sai Mounika</span></span>
       <div class="sub-heading mb-5">
         +91 9032341922 -
         <a href="mailto:thalladasaimounika01@gmail.com">thalladasaimounika01&#64;gmail.com</a>
@@ -111,20 +112,21 @@
         </div>
       </div> -->
       <div class="experience-content d-flex flex-column flex-lg-row w-100">
-        <mat-card class="example-card me-3 mb-3 mb-lg-0" appearance="outlined" *ngFor="let project of projectsList">
+        <mat-card class="project-card me-3 mb-3 mb-lg-0" (click)="openRolesAndResponsibilitiesModal(project.id)" 
+        appearance="outlined" *ngFor="let project of projectsList">
           <mat-card-header>
             <mat-card-title-group>
               <mat-card-title>{{project.jobTitle}}</mat-card-title>
-              <mat-card-subtitle class="sub-heading">{{project.company}}</mat-card-subtitle>
+              <mat-card-subtitle class="sub-heading fw-normal">{{project.company}}</mat-card-subtitle>
               <img mat-card-sm-image [src]="project.domainImage">
             </mat-card-title-group>
           </mat-card-header>
-          <mat-card-content>
-            {{project.projectInformation}} 
-            <button class="p-0 view-more" (click)="openRolesAndResponsibilitiesModal(project.id)">
-              <i class="fa-solid fa-chevron-right" [ngClass]="{'fa-beat': selectedNav==='experience'}" title="View More"></i>
-              <i class="fa-solid fa-chevron-right" [ngClass]="{'fa-beat': selectedNav==='experience'}" title="View More"></i>
-            </button>
+          <mat-card-content class="mt-2">
+            <div class="fw-semibold">{{project.projectName}}</div>
+            <div>
+              <span class="fw-semibold">Tech Stack & Tools: </span>
+              <span>{{project.techStack}}</span>
+            </div>
           </mat-card-content>
           <mat-card-footer>
             <span class="project-duration">{{project.rolePeriod}}</span>
@@ -173,23 +175,44 @@
       <h1 class="mb-5">Skills</h1>
       <h3 class="mb-3">
         Programming Languages & Tools
-        <!-- <span class="ms-4">
-          <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-            <mat-button-toggle value="imageView" title="Image View"><span class="bi bi-image"></span></mat-button-toggle>
-            <mat-button-toggle value="listView" title="List View"><span class="bi bi-list"></span></mat-button-toggle>
-          </mat-button-toggle-group>
-        </span> -->
       </h3>
-      <div class="skills-content mb-5">
-        <i class="fa-brands fa-angular me-3" title="Angular"></i>
-        <i class="fa-brands fa-js me-3" title="JavaScript"></i>
-        <i class="fa-brands fa-html5 me-3" title="HTML5"></i>
-        <i class="fa-brands fa-css3-alt me-3" title="CSS3"></i>
-        <i class="fa-brands fa-bootstrap me-3" title="Bootstrap"></i>
-        <i class="fa-brands fa-git me-3" title="Git"></i>
-        <i class="fa-brands fa-jira me-3" title="Jira"></i>
-        <i class="fa-brands fa-jenkins me-3" title="Jenkins"></i>
-        <i class="fa-brands fa-figma me-3" title="Figma"></i>
+      <div class="skills-content mb-5 d-flex flex-row">
+        <div class="skill p-2 me-2 mb-2">
+          <span class="fa-brands fa-angular"></span>
+          <span class="skill-name">Angular</span>
+        </div>
+        <div class="skill p-2 me-2 mb-2">
+          <span class="fa-brands fa-js"></span>
+          <span class="skill-name">JavaScript</span>
+        </div>
+        <div class="skill p-2 me-2 mb-2">
+          <span class="fa-brands fa-html5"></span>
+          <span class="skill-name">HTML5</span>
+        </div>
+        <div class="skill p-2 me-2 mb-2">
+          <span class="fa-brands fa-css3-alt"></span>
+          <span class="skill-name">CSS3</span>
+        </div>
+        <div class="skill p-2 me-2 mb-2">
+          <span class="fa-brands fa-bootstrap"></span>
+          <span class="skill-name">Bootstrap</span>
+        </div>
+        <div class="skill p-2 me-2 mb-2">
+          <span class="fa-brands fa-git"></span>
+          <span class="skill-name">Git</span>
+        </div>
+        <div class="skill p-2 me-2 mb-2">
+          <span class="fa-brands fa-jira"></span>
+          <span class="skill-name">Jira</span>
+        </div>
+        <div class="skill p-2 me-2 mb-2">
+          <span class="fa-brands fa-jenkins"></span>
+          <span class="skill-name">Jenkins</span>
+        </div>
+        <div class="skill p-2 me-2 mb-2">
+          <span class="fa-brands fa-figma"></span>
+          <span class="skill-name">Figma</span>
+        </div>
       </div>
       <h3 class="mb-3">
         Workflow

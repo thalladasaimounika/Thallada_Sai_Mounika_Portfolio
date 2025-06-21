@@ -20,8 +20,12 @@ export interface Project {
   jobTitle: string,
   company: string,
   domainImage: string
-  projectInformation: string,
-  rolePeriod: string
+  projectName: string,
+  rolePeriod: string,
+  domain: string,
+  techStack: string,
+  projectDescription: string,
+  responsibilities: Array<any>
 }
 @Component({
   selector: 'app-root',
@@ -56,24 +60,55 @@ export class App implements AfterViewInit {
         jobTitle: "Software Engineer",
         company: "Oracle India Pvt Ltd",
         domainImage: "construction.png",
-        projectInformation: "Developed and enhanced a responsive, role-based web application using Oracle JET (JavaScript Extension Toolkit) for managing employee projects, roles, timesheets, and performance dashboards. The application is used across multiple business units to streamline internal operations...",
-        rolePeriod: "May 2022 - Present"
+        projectName: "Textura Payment Management (TPM)",
+        rolePeriod: "May 2022 - Present",
+        domain: "Construction Platform",
+        techStack: "Oracle JET, JavaScript, HTML, CSS, Spectra UI",
+        projectDescription: "Textura Payment Management (TPM) is designed to automate and manage subcontractor payments, compliance documents, lien waivers, and invoice approvals in large-scale construction projects.",
+        responsibilities: [
+          "Developed and maintained interactive dashboards and modules using Oracle JET and Spectra UI components for a web-based construction management platform.",
+          "Integrated RESTful APIs to fetch and update construction project data including schedules, billing milestones, and compliance documentation.",
+          "Collaborated with backend teams to map API payloads and ensure consistent data formats across services.",
+          "Utilized Git for version control, managing code through feature branches, pull requests, and resolving merge conflicts as part of a collaborative development team.",
+          "Collaborated with cross-functional teams including backend developers, QA engineers, UX designers, and business analysts to deliver high-quality features aligned with project goals.",
+          "Collaborated in an Agile environment, actively participating in sprint planning, stand-ups, and bug fixing."
+        ]
       },
       {
         id: 2,
         jobTitle: "System Engineer",
         company: "Tata Consultancy Services",
         domainImage: "health_care1.png",
-        projectInformation: "A responsive web application built for hospitals to manage patient data, schedule appointments, track prescriptions, and provide teleconsultation features. Designed for doctors, patients, and administrative staff to streamline operations and improve care delivery.",
-        rolePeriod: "March 2020 - May 2022"
+        projectName: "Unapplied (Oliver)",
+        rolePeriod: "March 2020 - May 2022",
+        domain: "Healthcare Platform",
+        techStack: "Angular 12, Typescript, Bootstrap, PrimeNG, RestAPIs",
+        projectDescription: "A responsive web application built for hospitals and healthcare providers to schedule appointments, track prescriptions, and provide teleconsultation features. Designed for doctors, patients, and administrative staff to streamline operations and improve care delivery.",
+        responsibilities: [
+          "Developed dynamic and user-friendly front-end screens using Angular 12 and PrimeNG components for core healthcare modules such as patient intake, diagnostics, and reporting.",
+          "Utilized PrimeNG UI components like DataTable, Calendar, Dialog, MultiSelect, and Accordion to build interactive, reusable features with minimal custom styling.",
+          "Integrated with backend systems via RESTful APIs to fetch, display, and update patient records, prescriptions, and lab reports securely.",
+          "Collaborated closely with QA and backend teams to troubleshoot issues, perform integration testing, and meet healthcare compliance standards."
+        ]
       },
       {
         id: 3,
         jobTitle: "Associate System Engineer",
         company: "Tata Consultancy Services",
         domainImage: "health_care2.png",
-        projectInformation: "Reggie is a comprehensive healthcare web application designed to streamline patient management, health records and billing processes for hospitals and clinics. It enables healthcare professionals to deliver efficient and secure care while giving patients easy access to their health data.",
-        rolePeriod: "December 2018 - March 2020"
+        projectName: "Patient Placement System (PPS)",
+        rolePeriod: "December 2018 - March 2020",
+        domain: "Healthcare Platform",
+        techStack: "Angular 8, Typescript, Bootstrap, Angular Material, RestAPIs",
+        projectDescription: "A responsive web application built for hospitals and healthcare providers to schedule appointments, track prescriptions, and provide teleconsultation features. Designed for doctors, patients, and administrative staff to streamline operations and improve care delivery.",
+        responsibilities: [
+          "Developed responsive UI using Angular Material components",
+          "Built and reused custom UI components (tables, dialogs, form controls) to align with healthcare UX standards.", 
+          "Integrated with RESTful APIs to retrieve and manage patient data, prescription details, and lab reports",
+          "Managed component-based architecture and implemented lazy-loaded modules to enhance performance.",
+          "Ensured a responsive layout using Angular Flex Layout and CSS media queries for cross-device compatibility."
+
+        ]
       },
     ]
   }
@@ -132,7 +167,7 @@ export class App implements AfterViewInit {
   openRolesAndResponsibilitiesModal(id: number) {
     this.dialog.open(ProjectContentDialog, {
       data: {
-        id: id
+        projectDetails: this.projectsList.filter((item)=>{return item.id === id})
       }
     });
   }
@@ -143,12 +178,14 @@ export class App implements AfterViewInit {
   templateUrl: 'project-content-dialog.html',
   standalone: true,
   styleUrl: './app.css',
-  imports: [MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatButtonModule],
+  imports: [MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatButtonModule, NgFor],
 })
 export class ProjectContentDialog implements OnInit{
   data = inject(MAT_DIALOG_DATA);
-
+  projectDetails: any;
+  projectResponsibilities: Array<any> = [];
   ngOnInit(): void {
-    
+    this.projectDetails = this.data.projectDetails[0];
+    this.projectResponsibilities.push(...this.projectDetails.responsibilities);
   }
 }

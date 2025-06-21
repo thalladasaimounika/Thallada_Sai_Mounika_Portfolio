@@ -34,7 +34,7 @@
     }
 
     .resume-section {
-        width: 80%;
+        width: 80% !important;
     }
 
     #about,
@@ -66,7 +66,7 @@
 
 .resume-section {
     width: 100%;
-    padding-top: 3rem;
+    padding: 3rem 0 0 0;
 }
 
 #about,
@@ -85,8 +85,14 @@
 
 section#about h1 span,
 .project-duration,
-.education-duration {
+.education-duration,
+.name {
     color: #dc712b;
+}
+.name {
+    color: #dc712b;
+    font-size: 2.5rem;
+    font-family: "Agbalumo";
 }
 
 h1,
@@ -219,6 +225,22 @@ h4 {
 .mat-mdc-dialog-title{
     color: #343a40;
 }
-.mat-mdc-dialog-surface{
+.project-card{
+    cursor: pointer;
+}
+.project-details{
+    color: #6c757d;
+}
+.skill-name{
+    font-size: 0.75rem;
+}
+.skills-content .skill{
+    width: 100px;
+    text-align: center;
     background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
 }
